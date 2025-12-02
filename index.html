@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evangelho de Marcos - Acessível</title>
+    <meta name="description"
+        content="Website acessível do Evangelho de Marcos para surdos, com vídeos em libras e estrutura navegável.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <h1 class="main-title">
+            <span class="subtitle">Evangelho de</span>
+            <span class="title-highlight">MARCOS</span>
+        </h1>
+    </header>
+
+    <main class="container">
+        <section id="chapter-detail" class="chapter-detail hidden" aria-hidden="true">
+            <div class="detail-header">
+                <h2 id="detail-title" class="detail-title">Capítulo 1</h2>
+                <button id="close-detail" class="close-btn" aria-label="Fechar detalhes do capítulo">×</button>
+            </div>
+
+            <div class="detail-content">
+                <div class="video-section">
+                    <div class="tabs-container">
+                        <div role="tablist" aria-label="Conteúdo do Capítulo">
+                            <button role="tab" aria-selected="true" aria-controls="panel-pericopa"
+                                id="tab-pericopa">Perícopa</button>
+                            <button role="tab" aria-selected="false" aria-controls="panel-argumentos"
+                                id="tab-argumentos">Argumentos</button>
+                            <button role="tab" aria-selected="false" aria-controls="panel-link"
+                                id="tab-link">Link</button>
+                        </div>
+
+                        <!-- Panels kept for ARIA but visually hidden as content is in the video player -->
+                        <div id="panel-pericopa" role="tabpanel" aria-labelledby="tab-pericopa" class="sr-only"></div>
+                        <div id="panel-argumentos" role="tabpanel" aria-labelledby="tab-argumentos" hidden
+                            class="sr-only"></div>
+                        <div id="panel-link" role="tabpanel" aria-labelledby="tab-link" hidden class="sr-only"></div>
+                    </div>
+
+                    <div class="video-container">
+                        <!-- Placeholder for Video -->
+                        <div class="video-placeholder">
+                            <span class="play-icon">▶</span>
+                            <p>Vídeo em Libras</p>
+                        </div>
+                        <div class="video-controls">
+                            <button aria-label="Reproduzir">▶</button>
+                            <div class="progress-bar"></div>
+                            <button aria-label="Volume">🔊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="pericopes-sidebar">
+                    <h3 id="pericopes-title">Perícopas Capítulo 1</h3>
+                    <div class="pericopes-grid" id="pericopes-list">
+                        <!-- Pericopes buttons will be injected here -->
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section aria-label="Capítulos" class="chapters-grid" id="chapters-container">
+            <!-- Chapters will be injected here by JS -->
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <svg class="logo-lsa-svg" fill="none" xmlns="lsa.svg" aria-label="Logo LSA">
+            </svg>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
