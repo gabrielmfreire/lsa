@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const chapterDetail = document.getElementById('chapter-detail');
     const detailTitle = document.getElementById('detail-title');
     const closeDetailBtn = document.getElementById('close-detail');
-    const pericopesList = document.getElementById('pericopes-list');
-    const pericopesTitle = document.getElementById('pericopes-title');
+    const relatosList = document.getElementById('relatos-list');
+    const relatosTitle = document.getElementById('relatos-title');
 
     // Mock Data for 16 Chapters
     const chaptersData = Array.from({ length: 16 }, (_, i) => ({
         id: i + 1,
-        pericopes: generatePericopes(i + 1),
+        relatos: generateRelatos(i + 1),
         videos: {
-            pericopa: { title: "Vídeo da Perícopa", color: "linear-gradient(45deg, #2b2b2b, #4a4a4a)" },
-            argumentos: { title: "Vídeo dos Argumentos", color: "linear-gradient(45deg, #1a4bd0, #0d2b80)" },
-            link: { title: "Vídeo de Links", color: "linear-gradient(45deg, #ffbf00, #b38600)" }
+            "relato-biblico": { title: "Vídeo do Relato Bíblico", color: "linear-gradient(45deg, #2b2b2b, #4a4a4a)" },
+            argumentos: { title: "Vídeo del Argumentos", color: "linear-gradient(45deg, #1a4bd0, #0d2b80)" },
+            creditos: { title: "Vídeo de los Créditos", color: "linear-gradient(45deg, #ffbf00, #b38600)" }
         }
     }));
 
     let activeChapterId = null;
-    let activeTabId = 'pericopa'; // Default tab
+    let activeTabId = 'relato-biblico'; // Default tab
 
     // Initialize Grid
     renderChaptersGrid();
@@ -59,33 +59,32 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             activeChapterId = id;
             // Reset to default tab when opening new chapter
-            activeTabId = 'pericopa';
+            activeTabId = 'relato-biblico';
             resetTabs();
             openDetail(id);
         }
         renderChaptersGrid();
     }
-
-    let activePericopeRange = null;
+    let activeRelatoRange = null;
 
     function openDetail(id) {
         const chapter = chaptersData.find(c => c.id === id);
         if (!chapter) return;
 
-        // Default to first pericope
-        activePericopeRange = chapter.pericopes[0].range;
+        // Default to first relato
+        activeRelatoRange = chapter.relatos[0].range;
 
         // Update Content
-        updateTitles(id, activePericopeRange);
-        pericopesTitle.textContent = `Perícopas Capítulo ${id}`;
+        updateTitles(id, activeRelatoRange);
+        relatosTitle.textContent = `Relatos bíblicos | Capítulo ${id}`;
 
         updateMainVideo(chapter, activeTabId);
 
         // Render Pericopes
-        pericopesList.innerHTML = '';
-        chapter.pericopes.forEach((p, index) => {
+        relatosList.innerHTML = '';
+        chapter.relatos.forEach((p, index) => {
             const pBtn = document.createElement('button');
-            pBtn.className = 'pericope-btn';
+            pBtn.className = 'relato-btn';
 
             if (index === 0) pBtn.classList.add('active');
 
@@ -93,15 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
             pBtn.setAttribute('aria-label', `Versículos ${p.range}`);
 
             pBtn.addEventListener('click', () => {
-                document.querySelectorAll('.pericope-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.relato-btn').forEach(b => b.classList.remove('active'));
                 pBtn.classList.add('active');
 
-                activePericopeRange = p.range;
-                updateTitles(id, activePericopeRange);
+                activeRelatoRange = p.range;
+                updateTitles(id, activeRelatoRange);
                 updateMainVideo(chapter, activeTabId);
             });
 
-            pericopesList.appendChild(pBtn);
+            relatosList.appendChild(pBtn);
         });
 
         // Show Detail
@@ -113,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTitles(chapterId, range) {
-        detailTitle.textContent = `Capítulo ${chapterId} - Perícopa ${range}`;
+        detailTitle.textContent = `Capítulo ${chapterId} - Relato Bíblico ${range}`;
     }
 
     function updateMainVideo(chapter, type) {
@@ -124,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         videoPlaceholder.style.background = videoData.color;
 
         let title = videoData.title;
-        if (type === 'pericopa' && activePericopeRange) {
-            title = `Vídeo da Perícopa ${activePericopeRange}`;
+        if (type === 'relato-biblico' && activeRelatoRange) {
+            title = `Vídeo do Relato Bíblico ${activeRelatoRange}`;
         }
 
         videoPlaceholder.querySelector('p').textContent = title;
@@ -138,17 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
         renderChaptersGrid();
     }
 
-    // Helper to generate mock pericopes
-    function generatePericopes(chapterId) {
+    // Helper to generate mock relatos
+    function generateRelatos(chapterId) {
         const count = chapterId === 1 ? 9 : Math.floor(Math.random() * 5) + 5;
-        const pericopes = [];
+        const relatos = [];
         let start = 1;
         for (let i = 0; i < count; i++) {
             let end = start + Math.floor(Math.random() * 5) + 2;
-            pericopes.push({ range: `${start}-${end}` });
+            relatos.push({ range: `${start}-${end}` });
             start = end + 1;
         }
-        return pericopes;
+        return relatos;
     }
 
     // Tab Functions
@@ -191,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(panelId).hidden = false;
 
         // Update Video
-        // Extract type from id: tab-pericopa -> pericopa
+        // Extract type from id: tab-relato-biblico -> relato-biblico
         const type = tab.id.replace('tab-', '');
         activeTabId = type;
 
@@ -204,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function resetTabs() {
-        const defaultTab = document.getElementById('tab-pericopa');
+        const defaultTab = document.getElementById('tab-relato-biblico');
         if (defaultTab) activateTab(defaultTab);
     }
 });
