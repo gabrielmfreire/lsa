@@ -276,20 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Fallback for other types or missing video
-        const icon = document.createElement('span');
-        icon.className = 'play-icon';
-        icon.textContent = '▶';
 
-        const text = document.createElement('p');
-        let title = videoData.title;
-        if (type === 'relato-biblico' && activeRelatoRange) {
-            title = `Vídeo do Relato Bíblico ${activeRelatoRange}`;
-        }
-        text.textContent = title;
-
-        videoPlaceholder.appendChild(icon);
-        videoPlaceholder.appendChild(text);
     }
 
     function closeDetail() {
