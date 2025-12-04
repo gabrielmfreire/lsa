@@ -140,6 +140,108 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Add "Nota Final" to Chapter 16
+        if (chaptersMap.has(16)) {
+            chaptersMap.get(16).relatos.push({
+                range: "Nota Final",
+                videoId: "xwpXJkRxSe4",
+                title: "NOTA FINAL - Evangelio de Marcos en Lengua de Señas Argentina"
+            });
+        }
+
+        // Add argumentos data to all chapters (same for all)
+        const argumentosData = [
+            { title: "Tomás", videoId: "kOf8N00rYw4" },
+            { title: "Bartolomé", videoId: "ycA6v6qRsw0" },
+            { title: "Felipe", videoId: "p94VUowNxLo" },
+            { title: "Ciudad de Tiro", videoId: "Zz3bMM6kX1I" },
+            { title: "Ciudad de Sidón", videoId: "FyqjWoOCfjQ" },
+            { title: "Rey Herodes Antipas", videoId: "2wyBneXYOgs" },
+            { title: "Discípulos de Jesús", videoId: "uMo0nfSq_1o" },
+            { title: "María Magdalena", videoId: "pIWqd7MDKnY" },
+            { title: "Sanedrín Junta Suprema", videoId: "820oydhEQ5s" },
+            { title: "Resucitar Personas", videoId: "COUA77FkYh8" },
+            { title: "Isaac", videoId: "Xd01fFV_igM" },
+            { title: "Abraham", videoId: "lm849zVVMn0" },
+            { title: "Saduceos", videoId: "YSUxpF98f0s" },
+            { title: "Templo", videoId: "cGFswn25_uk" },
+            { title: "Betania", videoId: "FeWsZLj2u90" },
+            { title: "Betfagé", videoId: "qBn-0v2gXQQ" },
+            { title: "Monte de los Olivos", videoId: "LK-mElaHiXE" },
+            { title: "Pequeños", videoId: "kjnm5kRxaG8" },
+            { title: "Resucitar", videoId: "RZNUoJtuNOM" },
+            { title: "Maldecir", videoId: "-bYAtu4C9lM" },
+            { title: "Herodías", videoId: "YalSRCKM6Gc" },
+            { title: "Gerasa", videoId: "GalyVkQOz_8" },
+            { title: "Isaías", videoId: "55lUepFBCeA" },
+            { title: "María", videoId: "Sna296UncOc" },
+            { title: "Salomé", videoId: "PpE1cMuD91g" },
+            { title: "Barrabás", videoId: "6mR0HqhAeUo" },
+            { title: "Poncio Pilato", videoId: "YwJymjP3v5Q" },
+            { title: "Jacob", videoId: "yg7wtTWLuiA" },
+            { title: "Higo", videoId: "s2VVHbDPl10" },
+            { title: "Señor (Jesús)", videoId: "v8i78zEKjAo" },
+            { title: "Jericó", videoId: "NBg3HjrS_PU" },
+            { title: "Sacerdote Principal", videoId: "MG_95xpi6co" },
+            { title: "Cesarea de Filipo", videoId: "Xzd-Wry-Awc" },
+            { title: "Mandamientos", videoId: "kod8qXG1EFI" },
+            { title: "Tadeo", videoId: "QphjDWi9nT8" },
+            { title: "Reino de Dios", videoId: "eBFpENQUAi8" },
+            { title: "Ángeles", videoId: "M_bm4U_fD9A" },
+            { title: "Pecado", videoId: "Pdx8tpov14o" },
+            { title: "Espíritu Santo", videoId: "UwGFN6Nj1bQ" },
+            { title: "Jerusalén", videoId: "-LKX_TUeEh8" },
+            { title: "Juan el Bautista", videoId: "A9SZzqLrc4U" },
+            { title: "Profeta", videoId: "qyf9VghH_ZE" },
+            { title: "Mesías", videoId: "ms3MJLmCayU" },
+            { title: "Marcos", videoId: "USOPE7CrcvQ" },
+            { title: "José Rico", videoId: "TPBsYgx5PX8" },
+            { title: "Tabernáculo", videoId: "Ee40hgco2gk" },
+            { title: "David", videoId: "3f7r9KPMxgI" },
+            { title: "Fariseos", videoId: "IvrhuUc9-5c" },
+            { title: "Sacerdote", videoId: "JdwUydTwvTU" },
+            { title: "Sábado Día de Descanso", videoId: "S6s7lSNqSAw" },
+            { title: "Cafarnaúm", videoId: "f_xcFtEjaTg" },
+            { title: "Juan", videoId: "LAGDHAmVtYM" },
+            { title: "Santiago", videoId: "BCwn-ocU2OU" },
+            { title: "Andrés", videoId: "27PsohBdFOM" },
+            { title: "Simón", videoId: "hTovvCu2EHY" },
+            { title: "Nazaret", videoId: "9w2N2WI2PNs" },
+            { title: "Galilea", videoId: "FGmLF4roQIo" },
+            { title: "Río Jordán", videoId: "f9Pt0d84ZEk" },
+            { title: "Judea", videoId: "8y-Iu2bsKZ4" },
+            { title: "Fiesta de Pascua", videoId: "hhoITdTVMKE" },
+            { title: "Señal de Dios", videoId: "Y_emsZyiYI4" },
+            { title: "Líderes de Países Ancianos", videoId: "OudugGq-sQI" },
+            { title: "Decápolis", videoId: "cGmZsTpOilQ" },
+            { title: "12 Apóstoles", videoId: "QOOzhAqJaM8" },
+            { title: "Idumea", videoId: "mBkIIrxtRFY" },
+            { title: "Sumo Sacerdote", videoId: "uGOOapgfq8k" },
+            { title: "Ayuno", videoId: "ujUXPdvdeGI" },
+            { title: "Discípulo (Persona)", videoId: "8dlFdVblkjA" },
+            { title: "Mateo", videoId: "74h5K2HD59o" },
+            { title: "Hijo del Hombre", videoId: "A91v6K9_o5o" },
+            { title: "Moisés", videoId: "sXVw8VX8AjA" },
+            { title: "Compasión", videoId: "KIVNGzcqKUo" },
+            { title: "Casa", videoId: "ndhEpZjb8vo" },
+            { title: "Maestro de la Ley", videoId: "c6weguSPUZ0" },
+            { title: "Sinagoga", videoId: "DbvGBmlLtLw" },
+            { title: "Pedro", videoId: "L2uNXDjB-Cc" },
+            { title: "Getsemaní", videoId: "3sugOY6grTw" },
+            { title: "Certificado de Divorcio", videoId: "OFihBKF7HF4" },
+            { title: "Genesaret", videoId: "6-ahspZiR9Q" },
+            { title: "Filipo", videoId: "PpiqLy1CKz0" },
+            { title: "Betsaida", videoId: "KFGE9IicYIA" },
+            { title: "Elías Profeta", videoId: "zRO441_LPFo" },
+            { title: "Judas Iscariote", videoId: "c57lP-d1wco" },
+            { title: "Simón el Patriota", videoId: "clAOucpJvQY" },
+            { title: "Santiago hijo de Alfeo", videoId: "wkMnYIx0MBA" }
+        ];
+
+        chaptersMap.forEach(chapter => {
+            chapter.argumentos = argumentosData;
+        });
+
         // Convert map to array and sort by ID
         return Array.from(chaptersMap.values()).sort((a, b) => a.id - b.id);
     }
@@ -148,6 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let activeChapterId = null;
     let activeTabId = 'relato-biblico'; // Default tab
+    let activeRelatoRange = null;
+    let activeArgumentoId = null;
+    let currentArgumentosPage = 1;
+    const ARGUMENTOS_PER_PAGE = 16;
 
     // Initialize Grid
     renderChaptersGrid();
@@ -160,6 +266,28 @@ document.addEventListener('DOMContentLoaded', () => {
     tabs.forEach(tab => {
         tab.addEventListener('click', handleTabClick);
         tab.addEventListener('keydown', handleTabKeydown);
+    });
+
+    // Pagination event listeners
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentArgumentosPage > 1) {
+            currentArgumentosPage--;
+            const chapter = chaptersData.find(c => c.id === activeChapterId);
+            if (chapter) {
+                updateSidebar(chapter, 'argumentos');
+            }
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const chapter = chaptersData.find(c => c.id === activeChapterId);
+        if (chapter) {
+            const totalPages = Math.ceil(chapter.argumentos.length / ARGUMENTOS_PER_PAGE);
+            if (currentArgumentosPage < totalPages) {
+                currentArgumentosPage++;
+                updateSidebar(chapter, 'argumentos');
+            }
+        }
     });
 
     function renderChaptersGrid() {
@@ -194,7 +322,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         renderChaptersGrid();
     }
-    let activeRelatoRange = null;
+
+
+    function updateSidebar(chapter, type) {
+        relatosList.innerHTML = '';
+        const paginationControls = document.getElementById('pagination-controls');
+
+        if (type === 'argumentos') {
+            // Show argumentos list with pagination
+            relatosTitle.textContent = 'Listado de Argumentos';
+
+            const totalArgumentos = chapter.argumentos.length;
+            const totalPages = Math.ceil(totalArgumentos / ARGUMENTOS_PER_PAGE);
+            const startIndex = (currentArgumentosPage - 1) * ARGUMENTOS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ARGUMENTOS_PER_PAGE, totalArgumentos);
+            const argumentosToShow = chapter.argumentos.slice(startIndex, endIndex);
+
+            argumentosToShow.forEach((arg, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'relato-btn';
+                btn.textContent = arg.title;
+                btn.setAttribute('aria-label', `Argumento ${arg.title}`);
+
+                const globalIndex = startIndex + index;
+                if (globalIndex === 0 && !activeArgumentoId) {
+                    btn.classList.add('active');
+                    activeArgumentoId = arg.videoId;
+                } else if (activeArgumentoId === arg.videoId) {
+                    btn.classList.add('active');
+                }
+
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.relato-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeArgumentoId = arg.videoId;
+                    updateMainVideo(chapter, type);
+                });
+
+                relatosList.appendChild(btn);
+            });
+
+            // Show pagination controls
+            paginationControls.style.display = 'flex';
+            document.getElementById('page-info').textContent = `${currentArgumentosPage} / ${totalPages}`;
+            document.getElementById('prev-page').disabled = currentArgumentosPage === 1;
+            document.getElementById('next-page').disabled = currentArgumentosPage === totalPages;
+        } else {
+            // Hide pagination for relatos
+            paginationControls.style.display = 'none';
+            // Show relatos list
+            relatosTitle.textContent = `Relatos bíblicos | Capítulo ${chapter.id}`;
+
+            chapter.relatos.forEach((p, index) => {
+                const pBtn = document.createElement('button');
+                pBtn.className = 'relato-btn';
+
+                if (index === 0) pBtn.classList.add('active');
+
+                pBtn.textContent = p.range;
+                pBtn.setAttribute('aria-label', `Versículos ${p.range}`);
+
+                pBtn.addEventListener('click', () => {
+                    document.querySelectorAll('.relato-btn').forEach(b => b.classList.remove('active'));
+                    pBtn.classList.add('active');
+
+                    activeRelatoRange = p.range;
+                    updateTitles(chapter.id, activeRelatoRange);
+                    updateMainVideo(chapter, activeTabId);
+                });
+
+                relatosList.appendChild(pBtn);
+            });
+        }
+    }
 
     function openDetail(id) {
         const chapter = chaptersData.find(c => c.id === id);
@@ -202,35 +402,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Default to first relato
         activeRelatoRange = chapter.relatos[0].range;
+        activeArgumentoId = null; // Reset argumento selection
+        currentArgumentosPage = 1; // Reset pagination
 
         // Update Content
         updateTitles(id, activeRelatoRange);
-        relatosTitle.textContent = `Relatos bíblicos | Capítulo ${id}`;
-
         updateMainVideo(chapter, activeTabId);
-
-        // Render Pericopes
-        relatosList.innerHTML = '';
-        chapter.relatos.forEach((p, index) => {
-            const pBtn = document.createElement('button');
-            pBtn.className = 'relato-btn';
-
-            if (index === 0) pBtn.classList.add('active');
-
-            pBtn.textContent = p.range;
-            pBtn.setAttribute('aria-label', `Versículos ${p.range}`);
-
-            pBtn.addEventListener('click', () => {
-                document.querySelectorAll('.relato-btn').forEach(b => b.classList.remove('active'));
-                pBtn.classList.add('active');
-
-                activeRelatoRange = p.range;
-                updateTitles(id, activeRelatoRange);
-                updateMainVideo(chapter, activeTabId);
-            });
-
-            relatosList.appendChild(pBtn);
-        });
+        updateSidebar(chapter, activeTabId);
 
         // Show Detail
         chapterDetail.classList.remove('hidden');
@@ -274,6 +452,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 videoPlaceholder.appendChild(iframe);
                 return; // Exit, no need to show placeholder text
             }
+        }
+
+        if (type === 'argumentos' && activeArgumentoId) {
+            // Embed the specific argumento video
+            const iframe = document.createElement('iframe');
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.src = `https://www.youtube.com/embed/${activeArgumentoId}?autoplay=1`;
+            iframe.title = "YouTube video player";
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            iframe.allowFullscreen = true;
+
+            // Keep responsive styling
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+
+            videoPlaceholder.appendChild(iframe);
+            return;
+        }
+
+        if (type === 'creditos') {
+            // Embed the creditos video (same for all chapters)
+            const iframe = document.createElement('iframe');
+            iframe.width = "560";
+            iframe.height = "315";
+            iframe.src = "https://www.youtube.com/embed/IlcHRFUNAAs?autoplay=1";
+            iframe.title = "YouTube video player";
+            iframe.frameBorder = "0";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            iframe.allowFullscreen = true;
+
+            // Keep responsive styling
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+
+            videoPlaceholder.appendChild(iframe);
+            return;
         }
 
 
@@ -336,6 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const chapter = chaptersData.find(c => c.id === activeChapterId);
             if (chapter) {
                 updateMainVideo(chapter, type);
+                updateSidebar(chapter, type);
             }
         }
     }

@@ -322,7 +322,7 @@ button[role="tab"]:focus-visible {
 
 .relatos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 0.8rem;
 }
 
@@ -330,7 +330,7 @@ button[role="tab"]:focus-visible {
     background-color: var(--white);
     border: 1px solid transparent;
     border-radius: 20px;
-    padding: 0.6rem 0.2rem;
+    padding: 0.6rem 3px;
     font-size: 0.85rem;
     cursor: pointer;
     text-align: center;
@@ -338,6 +338,10 @@ button[role="tab"]:focus-visible {
     color: var(--text-dark);
     font-weight: 500;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
 }
 
 .relato-btn:hover {
@@ -356,6 +360,49 @@ button[role="tab"]:focus-visible {
 
 .relato-btn:focus-visible {
     outline: var(--focus-ring);
+}
+
+/* Pagination Controls */
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.pagination-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.page-info {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
 /* Footer */
